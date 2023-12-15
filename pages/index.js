@@ -9,8 +9,8 @@ import Masterclasses from "../components/homepage/MasterclassesCard";
 import PastSpeakers from "../components/homepage/PastSpeakers";
 import StatsMarquee from "../components/homepage/StatsMarquee";
 import Navbar from "../components/Navbar";
-
-export default function Home({}) {
+import InstallPrompt from "../components/CustomInstallation"
+export default function Home({ }) {
 	return (
 		<>
 			<Head>
@@ -27,6 +27,7 @@ export default function Home({}) {
 					<StatsMarquee id="marquee" />
 					{/* <Masterclasses id="masterclasses" /> */}
 					<PastSpeakers />
+					<InstallPrompt />
 					<Conclaves />
 					<Aftermovies />
 					<Footer websiteQueries={"95606 67329 (Aditya)"} />
