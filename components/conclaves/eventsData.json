@@ -1,0 +1,171 @@
+{
+	"youth": [
+		{
+			"number": 1,
+			"name": "Invaso",
+			"oneLine": "Invest in your future with Invaso - where financial knowledge meets strategic thinking.",
+			"description": "Invaso is an investment competition that challenges young minds to innovate, strategize, and plan for success - skills that are crucial for budding entrepreneurs.",
+			"src": "/assets/conclaves/Invaso_white.png",
+			"eventLink": "https://esummitiitm.org/events/invaso"
+		},
+		{
+			"number": 2,
+			"name": "Boardroom",
+			"oneLine": "Make Decisions That Matter",
+			"description": "An opportunity to demonstrate bold vision, creativity, technical insight, and business leadership while solving a business base focused on tomorrow’s issues in a formal setting with designated roles.",
+			"src": "/assets/conclaves/Boardroom_white.png",
+			"eventLink": "https://esummitiitm.org/events/boardroom"
+		},
+		{
+			"number": 3,
+			"name": "E-thletics",
+			"oneLine": "The Entrepreneurship Marathon",
+			"description": "E-thletics is a multi-round marathon that walks a player through each step of building a company or a product. Every round puts a different entrepreneurial ability to the test - from idea generation, analytical thinking to critical management - we do it all here.",
+			"src": "/assets/conclaves/E-thletics_white.png",
+			"eventLink": "https://esummitiitm.org/events/ethletics"
+		},
+		{
+			"number": 4,
+			"name": "MarketUp",
+			"oneLine": "Unleash the Marketing Genius!",
+			"description": "MarketUp is a platform for budding marketers to showcase their skills and compete with peers to win exciting prizes. Participants will have the opportunity to take part in a range of challenges, including online quizzes, marketing strategy planning and pitching.",
+			"src": "/assets/conclaves/Markathon-logo-white.png",
+			"eventLink": "https://esummitiitm.org/events/marketup"
+		},
+		{
+			"number": 5,
+			"name": "Stocks Are High",
+			"oneLine": "Riding the bull market to new heights.",
+			"description": "This game is to gives the participants a better understanding of portfolio management and the strategies involved in it. Every participant in the game is initially given the same number of virtual credits, which are expected to be invested as profitably as possible by the contestants for a time period of 2 weeks. In the end, participants will be judged based on the effectiveness of the portfolio they made.",
+			"src": "/assets/stocksAreHigh.png",
+			"eventLink": "https://esummitiitm.org/events/stocks-are-high"
+		},
+		{
+			"number": 6,
+			"name": "YES",
+			"oneLine": "Young Entrepreneurs @Schools",
+			"description": "Young Entrepreneurs @Schools is an event providing school students with effective mentorship about the basics of entrepreneurship and helping them to implement these learnings through the help of innovative competitions practically.",
+			"src": "/assets/conclaves/yes_logo.png",
+			"eventLink": "https://ecell.iitm.ac.in/event/yes"
+		},
+
+		{
+			"number": 7,
+			"name": "E-awards",
+			"oneLine": "May the best Entrepreneur win!",
+			"description": "Participants will have the chance to pitch presentations of their startup idea and get evaluated by the best judges, i.e, Entrepreneurial Alumni & Past Year E-Awards Winners.",
+			"src": "/assets/eAwards.png",
+			"eventLink": "https://esummitiitm.org/events/e-awards"
+		},
+		{
+			"number": 8,
+			"name": "HackStart",
+			"oneLine": "Transform Startup Data into Business Insights",
+			"description": "“HackStart” is a Business cum Tech Hackathon that will put your business acumen to the test while providing you with an opportunity to use your skills in order to analyse Startups data.",
+			"src": "/assets/conclaves/hackstartLogo.png",
+			"eventLink": "https://esummitiitm.org/events/hackstart"
+		},
+		{
+			"number": 9,
+			"name": "Business Simulation Game",
+			"oneLine": "Play, Strategize and Win!",
+			"description": "'BSG - StratUp' is an event that brings forth your business acumen, strategizing skills, and market intuition and incorporates them in the form of an online game format. The players will have to play in the game like they have to survive and maintain their company in an actual real-life market situation.",
+			"src": "/assets/conclaves/bsgLogo.png",
+			"eventLink": "https://esummitiitm.org/events/business-simulation-game"
+		}
+	],
+	"startup": [
+		{
+			"number": 1,
+			"name": "Elevate",
+			"oneLine": "Pan-India level pitching competition",
+			"eventLink": "https://ecell.iitm.ac.in/event/elevate",
+			"description": "Elevate is a pan-India level fundraising event that aims to bring together eminent startups and world-class mentors from across the nation, thus throwing a spotlight on some of the most promising startups in the country.",
+			"src": "/assets/conclaves/elevate-gradient.png"
+		},
+		{
+			"number": 2,
+			"name": "InternFair",
+			"oneLine": "A platform where startups can find quality interns from amongst the IITM students",
+			"description": "A platform where startups can find quality interns from amongst the IITM students. Startups can review the resumes submitted by the students who applied for their profile(s) and then shortlist the applicants for the further rounds of their onboarding procedure.",
+			"src": "/assets/conclaves/internfair_from_website_converted.png",
+			"eventLink": "https://ecell.iitm.ac.in/internfair"
+		},
+		{
+			"number": 3,
+			"name": "Sandberg's match",
+			"oneLine": "Interact with a cohort of excellent founders and VCs over lunch served on campus.",
+			"description": "Avail a wonderful opportunity to interact with top working professionals and build partnerships with them",
+			"src": "/assets/conclaves/sandberg.png",
+			"eventLink": "https://esummitiitm.org/events/sandberg-match"
+		},
+		{
+			"number": 4,
+			"name": "Investinder",
+			"oneLine": "Invest-in-der",
+			"description": "Investors and Startups have one on one discussions in a closed room. An investor will be matched with a startup founder according to sector and other metrics.",
+			"src": "/assets/conclaves/inverted_investinder.png",
+			"eventLink": "https://esummitiitm.org/events/investinder"
+		},
+		{
+			"number": 5,
+			"name": "Startup Expo",
+			"oneLine": "Interact with top professionals from the corporates and build a partnership with them",
+			"description": "A platform for innovative startups from all over the country to get in touch with hundreds of its potential customers and investors and showcase their potential as future companies. The stalls will be placed at some of the most crowd-engaging places in the institute, focusing on a wide variety of customer segments best suited to the startups.",
+			"src": "/assets/conclaves/startup showcase_logo.png",
+			"eventLink": "https://esummitiitm.org/events/startup-expo"
+		}
+	],
+	"innovators": [
+		{
+			"number": 1,
+			"name": "Startup Bootcamp",
+			"oneLine": "Mini startup accelerator program",
+			"src": "/assets/conclaves/bootcamp-white.png",
+			"eventLink": "https://esummitiitm.org/events/bootcamp",
+			"description": "Bootcamp is a 6-week long mini startup accelerator that provides early-stage startups with the requisite expertise and skills to make it big in the outside world BootCamp works through a carefully designed mixture of workshops and startup-specific mentoring that imparts knowledge efficiently."
+		},
+		{
+			"number": 2,
+			"name": "Product Construct",
+			"oneLine": "Product management case study competition",
+			"src": "/assets/conclaves/pc_white.png",
+			"eventLink": "https://esummitiitm.org/events/product-construct",
+			"description": "This event is to give a glimpse of the product managerial aspect to young and budding minds and also to inculcate the analytical thinking of building a product as is done by corporates."
+		},
+		{
+			"number": 3,
+			"name": "Education-21",
+			"oneLine": "Ideate | Build | Startup",
+			"src": "/assets/conclaves/e-21_white.png",
+			"eventLink": "https://ecell.iitm.ac.in/event/e21",
+			"description": "E-21 ingrains 21st-century skills and activates students’ entrepreneurial mindset while they learn the fundamentals of entrepreneurship and create and pitch original business plans."
+		},
+		{
+			"number": 4,
+			"name": "Unconference",
+			"oneLine": "Tackle the real-time business problem",
+			"src": "/assets/unconference/unconference_white.png",
+			"eventLink": "https://esummitiitm.org/events/unconference",
+			"description": "In Unconference, participants are tested on their problem-solving ability, business acumen, cultural insight, communication skills, and teamwork within a limited time period."
+		}
+	],
+	"sustainability": [
+		{
+			"number": 1,
+			"name": "Solve to Evolve",
+			"oneLine": "Industry Case Study challenge",
+			"src": "/assets/s2e.png",
+			"eventLink": "https://esummitiitm.org/events/solve-to-evolve",
+			"description": "The Sustainability Case Study Competition is a unique opportunity for university students to apply their knowledge and skills to real-world sustainability challenges.The competition brief asks teams to investigate and develop avenues to contribute towards setting up a robust infrastructure for carbon trading in India."
+		},
+		{
+			"number": 2,
+			"name": "Strategize",
+			"oneLine": "Advancing the SDGs through Innovative Policy",
+			"src": "/assets/strategize.png",
+			"description": "This competition is based on the theme of tackling the UNSDG 7: Clean and Affordable Energy, focused under E-Cell’s social campaign and it will take the teams through a journey of research, creativity and innovation. Under professional guidance, participants will draft a policy to address the given problem. With the best policies to be submitted to a government body.",
+			"eventLink": "https://esummitiitm.org/events/strategize"
+		}
+	]
+}

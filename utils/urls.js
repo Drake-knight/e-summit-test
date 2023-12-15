@@ -1,0 +1,18 @@
+export const urls = {
+	loginPortal: "https://portal.esummitiitm.org/login",
+	passesPage: "https://passes.esummitiitm.org/",
+	team: "https://ecell.iitm.ac.in/team",
+	pastSponsors: "https://ecell.iitm.ac.in/home/Sponsors",
+	blog: "https://ecell.iitm.ac.in/blog",
+	suspire: "https://ecell.iitm.ac.in/suspire",
+	discord: "https://discord.com/invite/cJp9fPK7Cx",
+	twitter: "https://twitter.com/ecell_iitm",
+	instagram: "https://www.instagram.com/ecell_iitm/",
+	linkedin: "https://in.linkedin.com/company/e-cell-iitm",
+	youtube: "https://www.youtube.com/channel/UCtPazFT8VSfAeREcgag4zMw",
+	homepage: "https://ecell.iitm.ac.in/",
+	registerPortal: "https://portal.esummitiitm.org/register",
+	shop: "https://shop.esummitiitm.org",
+	speakers: "https://passes.esummitiitm.org/speakers",
+	sponsors: "https://esummitiitm.org/sponsors",
+};
