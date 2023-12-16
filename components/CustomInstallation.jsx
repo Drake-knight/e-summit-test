@@ -1,51 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import useUserAgent from '../hooks/useUserAgent';
-import { FaTimes } from 'react-icons/fa';
-import { TbShare2 } from 'react-icons/tb';
-import { AiOutlinePlusSquare } from 'react-icons/ai';
-import { ImArrowDown, ImArrowUp } from 'react-icons/im';
+import PWAPrompt from "./PWAPrompt";
 
-const InstallPrompt = () => {
+const InstallPrompt = ({
+  timesToShow = 1,
+  promptOnVisit = 1,
+  permanentlyHideOnDismiss = true,
+  copyTitle = "Add to Home Screen",
+  copyBody = "This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.",
+  copyShareButtonLabel = "1) Press the 'Share' button on the menu bar below.",
+  copyAddHomeButtonLabel = "2) Press 'Add to Home Screen'.",
+  copyClosePrompt = "Cancel",
+  delay = 1000,
+  debug = false,
+  onClose = () => {},
+}) => {
   const { userAgent } = useUserAgent();
   console.log(userAgent);
 
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [showPrompt, setShowPrompt] = useState(false);
   console.log("hello");
-
-  const promptStyles = {
-    position: 'fixed',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: '60%',
-    zIndex: 50,
-    paddingBottom: 12,
-    paddingLeft: 16,
-    paddingRight: 16,
-    color: 'white',
-  };
-
-  const iconStyles = {
-    fontSize: '1.5rem',
-  };
-
-  const promptStyles2 = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: '70%',
-    zIndex: 50,
-    paddingTop: 12,
-    paddingLeft: 16,
-    paddingRight: 16,
-    color: 'white',
-  };
-
-  const iconStyles2 = {
-    fontSize: '1.5rem',
-  };
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (event) => {
@@ -84,57 +59,7 @@ const InstallPrompt = () => {
   const renderMobilePrompt = () => {
     console.log('Rendering prompt for:', userAgent);
 
-    if (userAgent === 'Safari') {
-      return (
-        <div style={promptStyles}>
-          <div style={{ ...promptStyles, backgroundColor: "white" }}>
-            <button style={{ position: 'absolute', top: 0, right: 0, padding: 12 }}>
-              <FaTimes style={iconStyles} />
-            </button>
-            <p className="text-lg">For the best experience, we recommend installing the Valley Trader app to your home screen!</p>
-            <div className="flex gap-2 items-center text-lg">
-              <p>Click the</p>
-              <TbShare2 style={{ ...iconStyles, fontSize: '2rem' }} />
-              <p>icon</p>
-            </div>
-            <div className="flex flex-col gap-2 items-center text-lg w-full px-4">
-              <p>Scroll down and then click:</p>
-              <div className="bg-zinc-800 flex justify-between items-center w-full px-4 py-2 rounded-lg">
-                <p>Add to Home Screen</p>
-                <AiOutlinePlusSquare style={iconStyles} />
-              </div>
-            </div>
-            <button className="border-2 p-1" >Don&apos;t show again</button>
-            <ImArrowDown className="text-4xl absolute -bottom-[50px] text-indigo-700 -z-10 animate-bounce" />
-          </div>
-        </div>
-      );
-    } else if (userAgent === 'ChromeiOS') {
-      return (
-        <div style={promptStyles2}>
-          <div style={{ ...promptStyles2, backgroundColor: "white" }}>
-            <ImArrowUp style={{ fontSize: '2.5rem', position: 'absolute', top: '-40px', right: 0, color: '#4f46e5', zIndex: 10 }} className="animate-bounce" />
-            <button style={{ position: 'absolute', top: 0, right: 0, padding: 12 }} >
-              <FaTimes style={iconStyles2} />
-            </button>
-            <p className="text-lg">For the best experience, we recommend installing the Valley Trader app to your home screen!</p>
-            <div className="flex gap-2 items-center text-lg">
-              <p>Click the</p>
-              <TbShare2 style={{ ...iconStyles2, fontSize: '2rem' }} />
-              <p>icon</p>
-            </div>
-            <div className="flex flex-col gap-2 items-center text-lg w-full px-4">
-              <p>Scroll down and then click:</p>
-              <div className="bg-zinc-800 flex items-center justify-between w-full px-8 py-2 rounded-lg">
-                <p>Add to Home Screen</p>
-                <AiOutlinePlusSquare style={iconStyles} />
-              </div>
-            </div>
-            <button className="border-2 p-1" >Don&apos;t show again</button>
-          </div>
-        </div>
-      );
-    } else {
+    if (userAgent !== 'Safari' && userAgent !== 'ChromeiOS') {
       console.log('Rendering default prompt');
       return (
         showPrompt && (
@@ -174,10 +99,25 @@ const InstallPrompt = () => {
           </div>
         )
       );
+    } else {
+
+    return (
+        showPrompt && (
+          <PWAPrompt
+            delay={delay}
+            copyTitle={copyTitle}
+            copyBody={copyBody}
+            copyAddHomeButtonLabel={copyAddHomeButtonLabel}
+            copyShareButtonLabel={copyShareButtonLabel}
+            copyClosePrompt={copyClosePrompt}
+            permanentlyHideOnDismiss={permanentlyHideOnDismiss}
+            maxVisits={timesToShow + promptOnVisit}
+            onClose={onClose}
+          />
+        )
+      );
     }
   };
-
-
 
   return showPrompt ? renderMobilePrompt() : null;
 };
