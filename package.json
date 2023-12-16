@@ -30,6 +30,7 @@
 		"react-icons": "^4.7.1",
 		"react-locomotive-scroll": "^0.2.2",
 		"rive-react": "^3.0.35",
+		"sass": "^1.69.5",
 		"sharp": "^0.31.3",
 		"swiper": "^8.4.5",
 		"ua-parser-js": "^1.0.37"
