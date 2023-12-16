@@ -4,7 +4,7 @@ import HomeScreenIcon from "./HomeScreenIcon";
 import styles from "./PWAPrompt.styles.module.scss";
 import { confirmAlert } from "react-confirm-alert";
 
-export const manualPrompt = async ({ doNotShowAgain, alreadyInstalled, isIOS, isAndroid }) => {
+export const manualPrompt = async () => {
   confirmAlert({
     customUI: ({ onClose: close }) => (
       <Fragment>
