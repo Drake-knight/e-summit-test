@@ -11,7 +11,7 @@ const InstallPrompt = ({
   copyShareButtonLabel = "1) Press the 'Share' button on the menu bar below.",
   copyAddHomeButtonLabel = "2) Press 'Add to Home Screen'.",
   copyClosePrompt = "Cancel",
-  delay = 1000,
+  delay = 10,
   debug = false,
   onClose = () => {},
 }) => {
