@@ -6,6 +6,7 @@ import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import "../components/CustomPromptPWA/global.css"
 
 function MyApp({ Component, pageProps }) {
 	const containerRef = useRef(false);

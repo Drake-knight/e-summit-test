@@ -9,7 +9,7 @@ import Masterclasses from "../components/homepage/MasterclassesCard";
 import PastSpeakers from "../components/homepage/PastSpeakers";
 import StatsMarquee from "../components/homepage/StatsMarquee";
 import Navbar from "../components/Navbar";
-import InstallPrompt from "../components/CustomInstallation"
+import Comp from "../components/CustomPromptPWA/comp";
 export default function Home({ }) {
 	return (
 		<>
@@ -27,7 +27,7 @@ export default function Home({ }) {
 					<StatsMarquee id="marquee" />
 					{/* <Masterclasses id="masterclasses" /> */}
 					<PastSpeakers />
-					<InstallPrompt />
+					<Comp />
 					<Conclaves />
 					<Aftermovies />
 					<Footer websiteQueries={"95606 67329 (Aditya)"} />
