@@ -53,7 +53,7 @@ export const manualPrompt = async () => {
               <p
                 className={`${styles.pwaPromptCopy} ${styles.bold} iOSPWA-step1-copy`}
               >
-                1. Press the 'Share' button on the menu bar below.
+                1. Press the &apos;Share&apos; button on the menu bar below.
               </p>
             </div>
             <div className={`${styles.pwaPromptInstructionStep} iOSPWA-step2`}>
@@ -63,7 +63,7 @@ export const manualPrompt = async () => {
               <p
                 className={`${styles.pwaPromptCopy} ${styles.bold} iOSPWA-step2-copy`}
               >
-                2. Press 'Add to Home Screen'.
+                2. Press &apos;Add to Home Screen&apos;.
               </p>
             </div>
           </div>
