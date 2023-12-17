@@ -23,17 +23,7 @@ function MyApp({ Component, pageProps }) {
 						console.log("Service Worker registration failed: ", err);
 					}
 				);
-
-
 				navigator.serviceWorker.register("/sw.js").then(
-					function (registration) {
-						console.log("Another Service Worker registration successful with scope: ", registration.scope);
-					},
-					function (err) {
-						console.log("Another Service Worker registration failed: ", err);
-					}
-				);
-				navigator.serviceWorker.register("/sw2.js").then(
 					function (registration) {
 						console.log("Another Service Worker registration successful with scope: ", registration.scope);
 					},

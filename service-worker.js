@@ -18,11 +18,11 @@ self.addEventListener("fetch", (event) => {
 });
 
 self.addEventListener("push", (event) => {
-    const eventData = event.data.json();
+    const eventData = event.data;
 
     const options = {
         body: eventData.body,
-        icon: "/notification-icon.png",
+        icon: "/assets/illustrations/e-cell_logo_white_wo_captions.png",
     };
 
     event.waitUntil(self.registration.showNotification(eventData.title, options));
