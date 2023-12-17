@@ -16,3 +16,4 @@ firebase.initializeApp({
     appId: "1:370317250525:web:521af4f23954b5441e7034"
 
 });
+console.info("Firebase messaging service worker is set up");

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
-import { firebaseApp } from "./firebase-messaging-sw";
+import { firebaseApp } from "./firebaseconfig";
 import axios from "axios";
 
 const PushNotificationHandler = () => {
