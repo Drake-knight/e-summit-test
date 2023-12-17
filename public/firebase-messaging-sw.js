@@ -13,15 +13,17 @@ firebase.initializeApp({
 });
 
 /* eslint-disable no-undef */
-self.addEventListener('push', function (event) {
-    const data = JSON.parse(event.data.text())
-    event.waitUntil(
-        registration.showNotification(data.title, {
-            body: data.message,
-            icon: '/assets/illustrations/e-cell_logo_white.png'
-        })
-    )
-})
+self.addEventListener("push", (event) => {
+    const eventData = event.data.json();
+
+    const options = {
+        body: eventData.body,
+        icon: '/assets/illustrations/e-cell_logo_white.png',
+    };
+
+    event.waitUntil(self.registration.showNotification(eventData.title, options));
+});
+
 
 self.addEventListener('notificationclick', function (event) {
     event.notification.close()
@@ -39,4 +41,16 @@ self.addEventListener('notificationclick', function (event) {
             return clients.openWindow('/')
         })
     )
+})
+
+self.addEventListener('message', async event => {
+    if (event.data && event.data.action === 'CACHE_NEW_ROUTE') {
+        caches.open('others').then(cache =>
+            cache.match(event.source.url).then(res => {
+                if (res === undefined) {
+                    return cache.add(event.source.url)
+                }
+            })
+        )
+    }
 })
