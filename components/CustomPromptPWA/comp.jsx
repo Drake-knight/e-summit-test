@@ -50,12 +50,11 @@
      }, [])
 
      useEffect(() => {
-      const isInstallable = device.isMobile && !pwa.isStandalone(window);
-
+      const isInstallable =  !pwa.isStandalone(window);
       const isInstalled = localStorage.getItem(INSTALLATION_STATUS)
       setTimeout(() => {
        if (isInstallable && !isInstalled)
-        if (deferredPrompt.current) {
+        if (!device.isIOS) {
          installationPrompt({
           doNotShowAgain,
           onInstall
@@ -67,7 +66,7 @@
          })
         }
       }, 10)
-     }, [device.isAndroid, device.isIOS, deferredPrompt.current])
+     }, [device.isAndroid, device.isIOS])
      
 
     return <>{children}</>;
