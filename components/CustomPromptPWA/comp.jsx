@@ -29,11 +29,8 @@
 
     const onInstall = (close) => {
         if (deferredPrompt.current) {
-       
         deferredPrompt?.current.prompt();
-        // Wait for the user to respond to the prompt
         let status = false;
-       
         deferredPrompt.current.userChoice.then((choiceResult) => {
             status = choiceResult.outcome === "accepted";
         });
@@ -44,55 +41,34 @@
         close();
         }
     };
-
-    const showInstallationPrompt = () => {
-        installationPrompt({
-          doNotShowAgain: (close) => doNotShowAgain(close),
-          onInstall: (close) => onInstall(close),
-        });
-      };
     useEffect(() => {
-        window.addEventListener(BEFORE_INSTALL_PROMPT, (e) => {
-        e.preventDefault();
-        deferredPrompt.current = e;
-        });
-        window.addEventListener(APP_INSTALLED, appInstalled);
+      window.addEventListener(BEFORE_INSTALL_PROMPT, (e) => {
+       e.preventDefault()
+       deferredPrompt.current = e
+      })
+      window.addEventListener(APP_INSTALLED, appInstalled)
+     }, [])
 
-        return () => {
-        // Cleanup event listeners when the component unmounts
-        window.removeEventListener(BEFORE_INSTALL_PROMPT, (e) => {
-            e.preventDefault();
-            deferredPrompt.current = e;
-        });
-        window.removeEventListener(APP_INSTALLED, appInstalled);
-        };
-    }, []);
+     useEffect(() => {
+      const isInstallable = device.isMobile && !pwa.isStandalone(window);
 
-   useEffect(() => {
-  // Trigger PWA installation prompt on mobile devices and web/PC
-  const isInstallable = device.isMobile || (device.isMobile && !pwa.isStandalone(window));
-  const isInstalled = localStorage.getItem(INSTALLATION_STATUS);
-
- 
-    if (isInstallable && !isInstalled) {
-      if (deferredPrompt.current) {
-        // Check if the device is Android before triggering the installation prompt
-        if (device.isAndroid) {
-          showInstallationPrompt();
-        } else if (device.isIOS ||(device.isTablet&&device.isIOS)) {
-          // Check if the device is iOS before triggering the manual installation prompt
-          manualPrompt({
-            doNotShowAgain,
-            alreadyInstalled,
-          });
+      const isInstalled = localStorage.getItem(INSTALLATION_STATUS)
+      setTimeout(() => {
+       if (isInstallable && !isInstalled)
+        if (deferredPrompt.current) {
+         installationPrompt({
+          doNotShowAgain,
+          onInstall
+         })
+        } else {
+         manualPrompt({
+          doNotShowAgain,
+          alreadyInstalled,
+         })
         }
-      }
-    } else if (!isInstallable && !isInstalled) {
-
-      showInstallationPrompt();
-    }
-}, [device.isAndroid, device.isIOS, deferredPrompt.current]);
-
+      }, 10)
+     }, [device.isAndroid, device.isIOS, deferredPrompt.current])
+     
 
     return <>{children}</>;
     }

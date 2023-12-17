@@ -21,5 +21,5 @@ export const BEFORE_INSTALL_PROMPT = "beforeinstallprompt"
 // appinstalled -> API refer caniuse for more info
 export const APP_INSTALLED = "appinstalled"
 // Customize your INSTALLATION STATUS and MESSAGE
-export const INSTALLATION_STATUS = "MY_BOOKS_APP_STATUS"
-export const INSTALLATION_MESSAGE = "MY_BOOKS_APP_INSTALLED"
+export const INSTALLATION_STATUS = "MYAPP_STATUS"
+export const INSTALLATION_MESSAGE = "MYAPP_INSTALLED"
