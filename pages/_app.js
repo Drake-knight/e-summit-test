@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }) {
 	useEffect(() => {
 		if ("serviceWorker" in navigator) {
 			window.addEventListener("load", function () {
+				// Register the first service worker
 				navigator.serviceWorker.register("/firebase-messaging-sw.js").then(
 					function (registration) {
 						console.log("Service Worker registration successful with scope: ", registration.scope);
@@ -22,9 +23,19 @@ function MyApp({ Component, pageProps }) {
 						console.log("Service Worker registration failed: ", err);
 					}
 				);
+
+
+				navigator.serviceWorker.register("/sw.js").then(
+					function (registration) {
+						console.log("Another Service Worker registration successful with scope: ", registration.scope);
+					},
+					function (err) {
+						console.log("Another Service Worker registration failed: ", err);
+					}
+				);
 			});
 		}
-	}, [])
+	}, []);
 
 	return (
 		<ChakraProvider theme={theme}>
