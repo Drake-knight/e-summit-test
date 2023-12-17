@@ -9,5 +9,4 @@ firebase.initializeApp({
     storageBucket: "esummit-86c5c.appspot.com",
     messagingSenderId: "927886998692",
     appId: "1:927886998692:web:e04743740d20e82e81fa31",
-    measurementId: "G-YMKZWZF0RM",
 });
