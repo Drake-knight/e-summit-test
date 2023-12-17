@@ -7,7 +7,7 @@ const PushNotificationHandler = () => {
     const [subscription, setSubscription] = useState(null);
 
     const sendTokenToLambda = async (token) => {
-        const lambdaEndpoint = "https://g4riluyuig.execute-api.eu-north-1.amazonaws.com/default/Esummit";
+        const lambdaEndpoint = "https://8znns98cv2.execute-api.eu-north-1.amazonaws.com/default/Esummit";
 
         const lambdaPayload = {
             deviceToken: token,
