@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { Button, Card } from "flowbite-react";
+
 import { confirmAlert } from "react-confirm-alert";
 
 // This Prompt is for devices that support auto-installation on PWA
@@ -81,7 +81,7 @@ export const installationPrompt = async ({ doNotShowAgain, onInstall }) => {
             <div
               style={customStyles.installButton}
               onClick={() => {
-                onInstall(() => onClose(    ));
+                onInstall(() => onClose( ));
               }}
             >
               Install

@@ -67,40 +67,36 @@
         window.removeEventListener(APP_INSTALLED, appInstalled);
         };
     }, []);
-    useEffect(() => {
-        // Trigger PWA installation prompt on mobile devices and web/PC
-        const isInstallable = device.isMobile || (device.isMobile && !pwa.isStandalone(window));
-        const isInstalled = localStorage.getItem(INSTALLATION_STATUS);
-      
-        setTimeout(() => {
-          if (isInstallable && !isInstalled) {
-            if (deferredPrompt.current) {
-              // Check if the device is Android before triggering the installation prompt
-              if (device.isAndroid) {
-                installationPrompt({
-                  doNotShowAgain,
-                  onInstall,
-                });
-              } else if (device.isIOS) {
-                // Check if the device is iOS and not Chrome on Mac before triggering the manual installation prompt
-                const isChromeOnMac = device.isMac && device.browser.name === 'Chrome';
-                if (!isChromeOnMac) {
-                  manualPrompt({
-                    doNotShowAgain,
-                    alreadyInstalled,
-                    isIOS: device.isIOS,
-                    isAndroid: device.isAndroid,
-                  });
-                }
-              }
-            }
-          } else if (!isInstallable && !isInstalled) {
-            // Show the custom installation prompt for non-mobile devices (web/PC)
-            showInstallationPrompt();
-          }
-        }, 1e3);
-      }, [device.isAndroid, device.isIOS, deferredPrompt.current]);
-      
+
+   useEffect(() => {
+  // Trigger PWA installation prompt on mobile devices and web/PC
+  const isInstallable = device.isMobile || (device.isMobile && !pwa.isStandalone(window));
+  const isInstalled = localStorage.getItem(INSTALLATION_STATUS);
+
+  setTimeout(() => {
+    if (isInstallable && !isInstalled) {
+      if (deferredPrompt.current) {
+        // Check if the device is Android before triggering the installation prompt
+        if (device.isAndroid) {
+          installationPrompt({
+            doNotShowAgain,
+            onInstall,
+          });
+        } else if (device.isIOS ||(device.isTablet&&device.isIOS)) {
+          // Check if the device is iOS before triggering the manual installation prompt
+          manualPrompt({
+            doNotShowAgain,
+            alreadyInstalled,
+          });
+        }
+      }
+    } else if (!isInstallable && !isInstalled) {
+      // Show the custom installation prompt for non-mobile devices (web/PC)
+      showInstallationPrompt();
+    }
+  }, 1e3);
+}, [device.isAndroid, device.isIOS, deferredPrompt.current]);
+
 
     return <>{children}</>;
     }
