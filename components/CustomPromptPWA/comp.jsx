@@ -29,11 +29,11 @@
 
     const onInstall = (close) => {
         if (deferredPrompt.current) {
-        // @ts-ignore
+       
         deferredPrompt?.current.prompt();
         // Wait for the user to respond to the prompt
         let status = false;
-        // @ts-ignore
+       
         deferredPrompt.current.userChoice.then((choiceResult) => {
             status = choiceResult.outcome === "accepted";
         });
@@ -73,15 +73,12 @@
   const isInstallable = device.isMobile || (device.isMobile && !pwa.isStandalone(window));
   const isInstalled = localStorage.getItem(INSTALLATION_STATUS);
 
-  setTimeout(() => {
+ 
     if (isInstallable && !isInstalled) {
       if (deferredPrompt.current) {
         // Check if the device is Android before triggering the installation prompt
         if (device.isAndroid) {
-          installationPrompt({
-            doNotShowAgain,
-            onInstall,
-          });
+          showInstallationPrompt();
         } else if (device.isIOS ||(device.isTablet&&device.isIOS)) {
           // Check if the device is iOS before triggering the manual installation prompt
           manualPrompt({
@@ -91,10 +88,9 @@
         }
       }
     } else if (!isInstallable && !isInstalled) {
-      // Show the custom installation prompt for non-mobile devices (web/PC)
+
       showInstallationPrompt();
     }
-  }, 1e3);
 }, [device.isAndroid, device.isIOS, deferredPrompt.current]);
 
 
