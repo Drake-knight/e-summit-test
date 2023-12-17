@@ -33,49 +33,49 @@ function MyApp({ Component, pageProps }) {
 						console.log("Another Service Worker registration failed: ", err);
 					}
 				);
+				navigator.serviceWorker.register("/sw2.js").then(
+					function (registration) {
+						console.log("Another Service Worker registration successful with scope: ", registration.scope);
+					},
+					function (err) {
+						console.log("Another Service Worker registration failed: ", err);
+					}
+				);
 			});
-			navigator.serviceWorker.register("/sw2.js").then(
-				function (registration) {
-					console.log("Another Service Worker registration successful with scope: ", registration.scope);
-				},
-				function (err) {
-					console.log("Another Service Worker registration failed: ", err);
-				}
-			);
-		});
-}
+
+		}
 	}, []);
 
-return (
-	<ChakraProvider theme={theme}>
-		{/* <Head>
+	return (
+		<ChakraProvider theme={theme}>
+			{/* <Head>
 				<title>E-Summit &apos;23</title>
 				<meta name="description" content="" />
 				<link rel="icon" href="/assets/favicon.png" />
 			</Head> */}
-		{<Head>
-			<link rel="manifest" href="/manifest.json" />
+			{<Head>
+				<link rel="manifest" href="/manifest.json" />
 
-		</Head>}
-		<Fonts />
-		<LocomotiveScrollProvider
-			options={{
-				smooth: true,
-				// ... all available Locomotive Scroll instance options
-			}}
-			watch={[
-				router.asPath,
-				//..all the dependencies you want to watch to update the scroll.
-				//  Basicaly, you would want to watch page/location changes
-				//  For exemple, on Next.js you would want to watch properties like `router.asPath` (you may want to add more criterias if the instance should be update on locations with query parameters)
-			]}
-			containerRef={containerRef}>
-			<main data-scroll-container ref={containerRef}>
-				<Component {...pageProps} />
-			</main>
-		</LocomotiveScrollProvider>
-	</ChakraProvider>
-);
+			</Head>}
+			<Fonts />
+			<LocomotiveScrollProvider
+				options={{
+					smooth: true,
+					// ... all available Locomotive Scroll instance options
+				}}
+				watch={[
+					router.asPath,
+					//..all the dependencies you want to watch to update the scroll.
+					//  Basicaly, you would want to watch page/location changes
+					//  For exemple, on Next.js you would want to watch properties like `router.asPath` (you may want to add more criterias if the instance should be update on locations with query parameters)
+				]}
+				containerRef={containerRef}>
+				<main data-scroll-container ref={containerRef}>
+					<Component {...pageProps} />
+				</main>
+			</LocomotiveScrollProvider>
+		</ChakraProvider>
+	);
 }
 
 export default MyApp;
