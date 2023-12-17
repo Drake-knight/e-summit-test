@@ -35,7 +35,8 @@
 		"sass": "^1.69.5",
 		"sharp": "^0.31.3",
 		"swiper": "^8.4.5",
-		"ua-parser-js": "^1.0.37"
+		"ua-parser-js": "^1.0.37",
+		"workbox": "^0.0.0"
 	},
 	"volta": {
 		"node": "16.13.1"
