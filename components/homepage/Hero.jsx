@@ -10,7 +10,7 @@ function Hero() {
 	const vibrate = () => {
 		if ("vibrate" in navigator) {
 
-		  navigator.vibrate(200);
+			navigator.vibrate([1000, 100, 1000]);
 		}
 	  };
 	useEffect(() => {
