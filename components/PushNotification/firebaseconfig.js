@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getMessaging } from "firebase/messaging/sw";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCHTCHrkx75W46v7iJ4cPTEqhC4ygMeCs0",
@@ -9,16 +10,8 @@ const firebaseConfig = {
     appId: "1:927886998692:web:e04743740d20e82e81fa31",
     measurementId: "G-YMKZWZF0RM",
 };
+const app = initializeApp(firebaseConfig);
+getMessaging(app);
 
-let app = null;
-let analytics = null;
-
-// Check if the app is already initialized to avoid re-initialization
-if (typeof window !== "undefined") {
-    import("firebase/analytics").then(({ getAnalytics }) => {
-        app = initializeApp(firebaseConfig);
-        analytics = getAnalytics(app);
-    });
-}
-
-export { app as firebaseApp, analytics };
+console.info("Firebase messaging service worker is set up");
+console.log(self.__WB_MANIFEST);
