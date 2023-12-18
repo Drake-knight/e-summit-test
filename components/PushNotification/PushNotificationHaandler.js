@@ -1,11 +1,14 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useState } from "react";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 import { firebaseApp } from "./firebaseconfig";
+import notifSound from "../../public/Notification.mp3"
+import useSound from 'use-sound';
 import axios from "axios";
 
 const PushNotificationHandler = () => {
     const [subscription, setSubscription] = useState(null);
-
+    const sound = useSound(notifSound);
     const sendTokenToLambda = async (token) => {
         const lambdaEndpoint = "https://8znns98cv2.execute-api.eu-north-1.amazonaws.com/default/Esummit";
 
@@ -25,6 +28,8 @@ const PushNotificationHandler = () => {
             console.error("Error sending token to Lambda:", error);
         }
     };
+
+
 
     const getFCMToken = async () => {
         const messaging = getMessaging(firebaseApp);
@@ -53,6 +58,8 @@ const PushNotificationHandler = () => {
 
             const unsubscribe = onMessage(messaging, (message) => {
                 console.log("Received message:", message);
+                sound.play();
+
             });
 
             return () => {

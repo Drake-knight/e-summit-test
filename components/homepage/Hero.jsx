@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { Box, Button, HStack, Text, VStack, useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { useEffect } from "react";
@@ -6,15 +7,21 @@ import silhoute from "../../public/assets/illustrations/people.png";
 import silhouteMobile from "../../public/assets/illustrations/people_mobile.png";
 import { FaArrowRight, FaTshirt } from "react-icons/fa";
 import { urls } from "../../utils/urls";
+import notifSound from "../../public/Notification.mp3"
+import useSound from 'use-sound';
+
 function Hero() {
 	const [isLargerThanMobile] = useMediaQuery("(min-width: 450px)");
 
+        const [play] = useSound(notifSound);
 	const vibrate = () => {
 		if (typeof window !== "undefined" && "vibrate" in navigator) {
 		 window.navigator.vibrate([320, 200, 320, 1000, 320, 200, 320]);
 		 console.log("vibr")
+
 		}
 	  };
+
 	useEffect(() => {
 		(function () {
 			var requestAnimationFrame =
@@ -210,7 +217,7 @@ function Hero() {
 						target="_blank"
 						fontSize="1.4rem"
 						fontFamily="Sen"
-						onClick={() => vibrate()}>
+						onClick={play}>
 						Buy Merch
 					</Button>
 					<Button
