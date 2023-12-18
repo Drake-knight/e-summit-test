@@ -7,7 +7,12 @@ import { FaArrowRight, FaTshirt } from "react-icons/fa";
 import { urls } from "../../utils/urls";
 function Hero() {
 	const [isLargerThanMobile] = useMediaQuery("(min-width: 450px)");
+	const vibrate = () => {
+		if ("vibrate" in navigator) {
 
+		  navigator.vibrate(200);
+		}
+	  };
 	useEffect(() => {
 		(function () {
 			var requestAnimationFrame =
@@ -27,6 +32,7 @@ function Hero() {
 		let height = document.getElementById("hero_section").clientHeight;
 		height < 400 ? (height = 400) : height;
 		console.log(height);
+	
 
 		background.width = width;
 		background.height = height;
@@ -213,7 +219,10 @@ function Hero() {
 						href={urls.loginPortal}
 						target="_blank"
 						fontSize="1.4rem"
-						fontFamily="Sen">
+						fontFamily="Sen"
+						onClick={() => {
+							vibrate(); 
+						  }} >
 						Login
 					</Button>
 				</HStack>
