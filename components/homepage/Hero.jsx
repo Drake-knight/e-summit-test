@@ -1,16 +1,17 @@
 import { Box, Button, HStack, Text, VStack, useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { useEffect } from "react";
+import dynamic from 'next/dynamic';
 import silhoute from "../../public/assets/illustrations/people.png";
 import silhouteMobile from "../../public/assets/illustrations/people_mobile.png";
 import { FaArrowRight, FaTshirt } from "react-icons/fa";
 import { urls } from "../../utils/urls";
 function Hero() {
 	const [isLargerThanMobile] = useMediaQuery("(min-width: 450px)");
-	const vibrate = () => {
-		if ("vibrate" in navigator) {
 
-			navigator.vibrate([320, 200, 320, 1000, 320, 200, 320]);
+	const vibrate = () => {
+		if (typeof window !== "undefined" && "vibrate" in navigator) {
+		  navigator.vibrate([320, 200, 320, 1000, 320, 200, 320]);
 		}
 	  };
 	useEffect(() => {
