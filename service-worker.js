@@ -1,47 +1,17 @@
-import { cleanupOutdatedCaches, precacheAndRoute } from "workbox-precaching";
-import { clientsClaim } from "workbox-core";
+import { initializeApp } from "firebase/app";
+import { getMessaging } from "firebase/messaging/sw";
 
-self.skipWaiting();
-clientsClaim();
-cleanupOutdatedCaches();
+const firebaseConfig = {
+    apiKey: "AIzaSyCHTCHrkx75W46v7iJ4cPTEqhC4ygMeCs0",
+    authDomain: "esummit-86c5c.firebaseapp.com",
+    projectId: "esummit-86c5c",
+    storageBucket: "esummit-86c5c.appspot.com",
+    messagingSenderId: "927886998692",
+    appId: "1:927886998692:web:e04743740d20e82e81fa31",
+    measurementId: "G-YMKZWZF0RM",
+};
+const app = initializeApp(firebaseConfig);
+getMessaging(app);
 
-precacheAndRoute(self.__WB_MANIFEST);
-
-self.addEventListener("fetch", (event) => {
-    if (!navigator.onLine) {
-        event.respondWith(
-            new Response(JSON.stringify({ type: "offline" }), {
-                headers: { "Content-Type": "application/json" },
-            })
-        );
-    }
-});
-
-self.addEventListener("push", (event) => {
-    const eventData = event.data;
-
-    const options = {
-        body: eventData.body,
-        icon: "/assets/illustrations/e-cell_logo_white_wo_captions.png",
-    };
-
-    event.waitUntil(self.registration.showNotification(eventData.title, options));
-});
-
-// self.addEventListener('notificationclick', function (event) {
-//     event.notification.close()
-//     event.waitUntil(
-//         clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function (clientList) {
-//             if (clientList.length > 0) {
-//                 let client = clientList[0]
-//                 for (let i = 0; i < clientList.length; i++) {
-//                     if (clientList[i].focused) {
-//                         client = clientList[i]
-//                     }
-//                 }
-//                 return client.focus()
-//             }
-//             return clients.openWindow('/')
-//         })
-//     )
-// })
+console.info("Firebase messaging service worker is set up");
+console.log(self.__WB_MANIFEST);

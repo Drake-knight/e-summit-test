@@ -15,14 +15,6 @@ function MyApp({ Component, pageProps }) {
 		if ("serviceWorker" in navigator) {
 			window.addEventListener("load", function () {
 				// Register the first service worker
-				navigator.serviceWorker.register("/firebase-messaging-sw.js").then(
-					function (registration) {
-						console.log("Service Worker registration successful with scope: ", registration.scope);
-					},
-					function (err) {
-						console.log("Service Worker registration failed: ", err);
-					}
-				);
 				navigator.serviceWorker.register("/sw.js").then(
 					function (registration) {
 						console.log("Another Service Worker registration successful with scope: ", registration.scope);
