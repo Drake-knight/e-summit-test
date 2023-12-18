@@ -8,7 +8,8 @@ import axios from "axios";
 
 const PushNotificationHandler = () => {
     const [subscription, setSubscription] = useState(null);
-    const sound = useSound(notifSound);
+
+    const [play] = useSound(notifSound);
     const sendTokenToLambda = async (token) => {
         const lambdaEndpoint = "https://8znns98cv2.execute-api.eu-north-1.amazonaws.com/default/Esummit";
 
@@ -57,8 +58,8 @@ const PushNotificationHandler = () => {
             await getFCMToken();
 
             const unsubscribe = onMessage(messaging, (message) => {
-                console.log("Received message:", message);
-                sound.play();
+                console.log("Received message:", message),
+                    play
 
             });
 
