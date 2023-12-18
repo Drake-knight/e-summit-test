@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 const CACHE_NAME = "build0";
-const urlsToCache = ["index.html", "offline.html"];
+const urlsToCache = ["offline.html"];
 
 self.addEventListener("install", (event) => {
     console.log("install event received:", event);
