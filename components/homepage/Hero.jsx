@@ -11,7 +11,7 @@ function Hero() {
 
 	const vibrate = () => {
 		if (typeof window !== "undefined" && "vibrate" in navigator) {
-		  navigator.vibrate([320, 200, 320, 1000, 320, 200, 320]);
+		 window.navigator.vibrate([320, 200, 320, 1000, 320, 200, 320]);
 		}
 	  };
 	useEffect(() => {
