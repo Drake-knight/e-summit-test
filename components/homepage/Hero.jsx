@@ -210,8 +210,7 @@ function Hero() {
 						target="_blank"
 						fontSize="1.4rem"
 						fontFamily="Sen"
-						onClick={
-							vibrate()} >
+						onClick={() => vibrate()}>
 						Buy Merch
 					</Button>
 					<Button
@@ -224,8 +223,7 @@ function Hero() {
 						target="_blank"
 						fontSize="1.4rem"
 						fontFamily="Sen"
-						onClick={
-							vibrate()} >
+						onClick={() => vibrate()} >
 						Login
 					</Button>
 				</HStack>
