@@ -10,7 +10,7 @@ function Hero() {
 	const vibrate = () => {
 		if ("vibrate" in navigator) {
 
-			navigator.vibrate([1000, 100, 1000]);
+			navigator.vibrate([320, 200, 320, 1000, 320, 200, 320]);
 		}
 	  };
 	useEffect(() => {
@@ -204,10 +204,12 @@ function Hero() {
 						size={{ base: "md", md: "lg" }}
 						padding={{ base: "1rem", xl: "2rem" }}
 						as="a"
-						href={urls.shop}
+						// href={urls.shop}
 						target="_blank"
 						fontSize="1.4rem"
-						fontFamily="Sen">
+						fontFamily="Sen"
+						onClick={
+							vibrate()} >
 						Buy Merch
 					</Button>
 					<Button
@@ -216,13 +218,12 @@ function Hero() {
 						size={{ base: "md", md: "lg" }}
 						padding={{ base: "1rem", xl: "2rem" }}
 						as="a"
-						href={urls.loginPortal}
+						// href={urls.loginPortal}
 						target="_blank"
 						fontSize="1.4rem"
 						fontFamily="Sen"
-						onClick={() => {
-							vibrate(); 
-						  }} >
+						onClick={
+							vibrate()} >
 						Login
 					</Button>
 				</HStack>
