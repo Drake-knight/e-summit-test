@@ -12,30 +12,6 @@ import "../components/CustomPromptPWA/global.css"
 function MyApp({ Component, pageProps }) {
 	const containerRef = useRef(false);
 	const router = useRouter();
-	useEffect(() => {
-		if (typeof window !== 'undefined' && 'serviceWorker' in navigator && window.workbox !== undefined) {
-			const wb = window.workbox
-			const promptNewVersionAvailable = event => {
-				if (confirm('A newer version of this web app is available, reload to update?')) {
-					wb.addEventListener('controlling', event => {
-						window.location.reload()
-					}).
-						wb.messageSkipWaiting()
-				} else {
-					console.log(
-						'User rejected to reload the web app, keep using old version. New version will be automatically load when user open the app next time.'
-					)
-				}
-			}
-
-			wb.addEventListener('waiting', promptNewVersionAvailable)
-			wb.addEventListener('message', event => {
-				console.log(`Event ${event.type} is triggered.`)
-				console.log(event)
-			})
-			wb.register()
-		}
-	}, [])
 
 	useEffect(() => {
 		if ("serviceWorker" in navigator) {
