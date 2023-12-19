@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getMessaging } from "firebase/messaging/sw";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyCHTCHrkx75W46v7iJ4cPTEqhC4ygMeCs0",
@@ -10,8 +10,7 @@ const firebaseConfig = {
     appId: "1:927886998692:web:e04743740d20e82e81fa31",
     measurementId: "G-YMKZWZF0RM",
 };
-const app = initializeApp(firebaseConfig);
-getMessaging(app);
+const firebaseApp = initializeApp(firebaseConfig);
 
-console.info("Firebase messaging service worker is set up");
-console.log(self.__WB_MANIFEST);
+
+export { firebaseApp };

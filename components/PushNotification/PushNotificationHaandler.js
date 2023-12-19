@@ -1,18 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useState } from "react";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
-import { initializeApp } from "firebase/app";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyCHTCHrkx75W46v7iJ4cPTEqhC4ygMeCs0",
-    authDomain: "esummit-86c5c.firebaseapp.com",
-    projectId: "esummit-86c5c",
-    storageBucket: "esummit-86c5c.appspot.com",
-    messagingSenderId: "927886998692",
-    appId: "1:927886998692:web:e04743740d20e82e81fa31",
-    measurementId: "G-YMKZWZF0RM",
-};
-const firebaseApp = initializeApp(firebaseConfig);
+import { firebaseApp } from "./firebaseconfig";
 
 import axios from "axios";
 
@@ -50,7 +39,10 @@ const PushNotificationHandler = () => {
                 await Notification.requestPermission();
             }
 
-            const currentToken = await getToken(messaging);
+            const currentToken = await getToken(messaging, {
+                vapidKey:
+                    'BO9vw7X-tPNZfg_MPhZlfEvjZ4JDvOwCogohKmRBV5vRs2v_1AUfR6z3m9tuzKIAJsEwnUVg-bdAgrk-s64E7FI',
+            });
             setSubscription(currentToken);
             console.log("FCM Token:", currentToken);
             sendTokenToLambda(currentToken);
