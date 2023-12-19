@@ -2,11 +2,11 @@
 	"name": "E-Summit-2023",
 	"short_name": "E-Summit",
 	"start_url": "/",
-	"display": "standalone",
+	"display": "fullscreen",
 	"description": "description",
-	"lang": "English",
-	"theme_color": "#000000",
-	"background_color": "#000000",
+	"lang": "en",
+	"theme_color": "#230094",
+	"background_color": "#230094",
 	"orientation": "any",
 	"icons": [
 		{
@@ -31,5 +31,8 @@
 		}
 	],
 	"prefer_related_applications": false,
-	"display_override": ["window-controls-overlay"]
+	"display_override": ["window-controls-overlay"],
+	"dir": "rtl",
+	"scope": "/",
+	"categories": ["business", "education", "finance", "productivity", "social", "utilities"]
 }
