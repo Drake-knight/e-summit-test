@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-importScripts('https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/10.6.0/firebase-messaging.js');
-
+importScripts('https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js');
 const firebaseConfig = {
     apiKey: "AIzaSyCHTCHrkx75W46v7iJ4cPTEqhC4ygMeCs0",
     authDomain: "esummit-86c5c.firebaseapp.com",
