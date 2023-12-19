@@ -16,17 +16,30 @@ function MyApp({ Component, pageProps }) {
 	useEffect(() => {
 		if ("serviceWorker" in navigator) {
 			window.addEventListener("load", function () {
-
 				navigator.serviceWorker.register("firebase-messaging-sw.js", { scope: 'firebase-cloud-messaging-push-scope' }).then(
 					function (registration) {
-						console.log(" Service Worker registration successful with scope: ", registration.scope);
+						console.log("Service Worker registration successful with scope: ", registration.scope);
 					},
 					function (err) {
-						console.log(" Service Worker registration failed: ", err);
+						console.log("Service Worker registration failed: ", err);
 					}
 				);
-			});
 
+				// Check for service worker updates
+				navigator.serviceWorker.addEventListener("controllerchange", () => {
+					const newWorker = navigator.serviceWorker.controller;
+					if (newWorker) {
+						newWorker.postMessage({ type: "UPDATE_AVAILABLE" });
+					}
+				});
+
+				// Check for service worker updates when the page becomes visible
+				document.addEventListener("visibilitychange", () => {
+					if (document.visibilityState === "visible") {
+						navigator.serviceWorker.controller.postMessage({ type: "CHECK_FOR_UPDATES" });
+					}
+				});
+			});
 		}
 	}, []);
 
