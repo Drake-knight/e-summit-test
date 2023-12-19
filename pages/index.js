@@ -10,6 +10,7 @@ import PastSpeakers from "../components/homepage/PastSpeakers";
 import StatsMarquee from "../components/homepage/StatsMarquee";
 import Navbar from "../components/Navbar";
 import Comp from "../components/CustomPromptPWA/comp";
+
 import PushNotificationHandler from "../components/PushNotification/PushNotificationHaandler";
 export default function Home({ }) {
 	return (
