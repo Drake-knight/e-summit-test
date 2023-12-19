@@ -2,7 +2,6 @@
 importScripts('https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js');
 // eslint-disable-next-line no-undef
 importScripts('https://www.gstatic.com/firebasejs/8.8.0/firebase-messaging.js');
-
 const firebaseConfig = {
     apiKey: "AIzaSyCHTCHrkx75W46v7iJ4cPTEqhC4ygMeCs0",
     authDomain: "esummit-86c5c.firebaseapp.com",
@@ -26,7 +25,8 @@ messaging.onBackgroundMessage((payload) => {
     const notificationTitle = payload.notification.title;
     const notificationOptions = {
         body: payload.notification.body,
-        icon: './logo.png',
+        icon: './assets/illustrations/esummit_logo.png',
+        sound: 'default',
     };
     self.registration.showNotification(notificationTitle, notificationOptions);
 });
