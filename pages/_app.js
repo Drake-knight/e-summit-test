@@ -13,20 +13,6 @@ function MyApp({ Component, pageProps }) {
 	const containerRef = useRef(false);
 	const router = useRouter();
 
-	useEffect(() => {
-		if ("serviceWorker" in navigator) {
-			window.addEventListener("load", function () {
-				navigator.serviceWorker.register("firebase-messaging-sw.js", { scope: 'firebase-cloud-messaging-push-scope' }).then(
-					function (registration) {
-						console.log("Service Worker registration successful with scope: ", registration.scope);
-					},
-					function (err) {
-						console.log("Service Worker registration failed: ", err);
-					}
-				);
-			});
-		}
-	}, []);
 
 	return (
 		<ChakraProvider theme={theme}>
